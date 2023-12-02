@@ -29,17 +29,17 @@ public class Day2 {
         }
     }
 
-    private static long minimumPowerOfGame(String gameData) {
-        Pattern pattern = Pattern.compile("(\\d+) (red|green|blue)");
-        Matcher matcher = pattern.matcher(gameData);
+    private static long minimumPowerOfGame(final String gameData) {
+        final Pattern pattern = Pattern.compile("(\\d+) (red|green|blue)");
+        final Matcher matcher = pattern.matcher(gameData);
 
         long maxRed = 1;
         long maxGreen = 1;
         long maxBlue = 1;
 
         while (matcher.find()) {
-            int count = Integer.parseInt(matcher.group(1));
-            String color = matcher.group(2);
+            final int count = Integer.parseInt(matcher.group(1));
+            final String color = matcher.group(2);
 
             if ("red".equalsIgnoreCase(color) && count > maxRed) {
                 maxRed = count;
