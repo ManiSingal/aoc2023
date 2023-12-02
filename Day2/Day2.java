@@ -33,26 +33,26 @@ public class Day2 {
         Pattern pattern = Pattern.compile("(\\d+) (red|green|blue)");
         Matcher matcher = pattern.matcher(gameData);
 
-        long minimumRed = 1;
-        long minimumGreen = 1;
-        long minimumBlue = 1;
+        long maxRed = 1;
+        long maxGreen = 1;
+        long maxBlue = 1;
 
         while (matcher.find()) {
             int count = Integer.parseInt(matcher.group(1));
             String color = matcher.group(2);
 
-            if ("red".equalsIgnoreCase(color) && count > minimumRed) {
-                minimumRed = count;
+            if ("red".equalsIgnoreCase(color) && count > maxRed) {
+                maxRed = count;
             }
 
-            if ("green".equalsIgnoreCase(color) && count > minimumGreen) {
-                minimumGreen = count;
+            if ("green".equalsIgnoreCase(color) && count > maxGreen) {
+                maxGreen = count;
             }
 
-            if ("blue".equalsIgnoreCase(color) && count > minimumBlue) {
-                minimumBlue = count;
+            if ("blue".equalsIgnoreCase(color) && count > maxBlue) {
+                maxBlue = count;
             }
         }
-        return minimumRed * minimumGreen * minimumBlue;
+        return maxRed * maxGreen * maxBlue;
     }
 }
