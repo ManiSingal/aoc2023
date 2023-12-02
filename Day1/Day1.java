@@ -23,14 +23,19 @@ public class Day1 {
             int totalSum = 0;
 
             while ((line = reader.readLine()) != null) {
-                totalSum += extractCalibrationValue(line);
+                final int value = extractCalibrationValue(line);
+                System.out.println("Calibration value: " + value);
+                totalSum += value;
             }
 
             return totalSum;
         }
     }
 
-    private static int extractCalibrationValue(final String line) {
+    private static int extractCalibrationValue(String line) {
+
+        line = replaceSpeltOutWords(line);
+
         final Pattern pattern = Pattern.compile("\\d");
         final Matcher matcher = pattern.matcher(line);
 
@@ -46,5 +51,20 @@ public class Day1 {
         }
 
         return 0;
+    }
+
+    private static String replaceSpeltOutWords(String line) {
+        line = line.replaceAll("one", "o1e");
+        line = line.replaceAll("two", "t2o");
+        line = line.replaceAll("three", "t3e");
+        line = line.replaceAll("four", "f4r");
+        line = line.replaceAll("five", "f5e");
+        line = line.replaceAll("six", "s6x");
+        line = line.replaceAll("seven", "s7n");
+        line = line.replaceAll("eight", "e8t");
+        line = line.replaceAll("nine", "n9e");
+        line = line.replaceAll("zero", "z0o");
+
+        return line;
     }
 }
