@@ -11,20 +11,19 @@ public class Day1 {
 
     public static void main(final String[] args) {
         try {
-            System.out.println("Total calibration sum: " + calculateSum(FILE_PATH));
+            System.out.println("Total calibration sum: " + calculateSum());
         } catch (final IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static int calculateSum(String filePath) throws IOException {
-        try (final BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+    private static int calculateSum() throws IOException {
+        try (final BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             int totalSum = 0;
 
             while ((line = reader.readLine()) != null) {
                 final int value = extractCalibrationValue(line);
-                System.out.println("Calibration value: " + value);
                 totalSum += value;
             }
 
@@ -40,7 +39,7 @@ public class Day1 {
         final Matcher matcher = pattern.matcher(line);
 
         if (matcher.find()) {
-            int firstDigit = Integer.parseInt(matcher.group());
+            final int firstDigit = Integer.parseInt(matcher.group());
             int lastDigit = firstDigit;
 
             while (matcher.find()) {
