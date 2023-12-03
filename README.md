@@ -1,2 +1,2 @@
-# aoc2023
-Advent of Code 2023 Solutions in Java
+# AOC
+Advent of Code Solutions
