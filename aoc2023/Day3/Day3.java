@@ -55,9 +55,9 @@ public class Day3 {
         }
     }
 
-    private static boolean isAdjacentToSymbol(final int row, final int colStart, int colEnd) {
-        int start = Math.max(colStart - 1, 0);
-        int end = Math.min(colEnd + 1, SIZE - 1);
+    private static boolean isAdjacentToSymbol(final int row, final int colStart, final int colEnd) {
+        final int start = Math.max(colStart - 1, 0);
+        final int end = Math.min(colEnd + 1, SIZE - 1);
 
         if (isAdjacentInRow(row - 1, start, end) || isAdjacentInRow(row + 1, start, end)) {
             return true;
@@ -73,7 +73,7 @@ public class Day3 {
         return false;
     }
 
-    private static boolean isAdjacentInRow(int row, int startCol, int endCol) {
+    private static boolean isAdjacentInRow(final int row, final int startCol, final int endCol) {
         if (row < 0 || row >= SIZE)
             return false;
         for (int col = startCol; col <= endCol; col++) {
@@ -84,7 +84,7 @@ public class Day3 {
         return false;
     }
 
-    private static boolean isSymbol(char ch) {
+    private static boolean isSymbol(final char ch) {
         return !Character.isDigit(ch) && ch != '.';
     }
 }
